@@ -1,0 +1,50 @@
+package com.example.graficos1;
+
+import android.R.color;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class Screen2 extends activity_screen2 { 
+public void ExecutarDemo(View) {
+	XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
+
+	// Legenda do gráfico
+	renderer.setChartTitle("Título"); // Título do gráfico
+	renderer.setLabelsColor(color.WHITE); // Cor das legendas
+	renderer.setChartTitleTextSize(25); // tamanhã do título do gráfico
+
+	// Eixos
+	renderer.setLabelsTextSize(15); // Tamanho da fonte das casas dos eixos X e Y
+	renderer.setAxisTitleTextSize(20); // Tamanho da fonte dos nomes dos eixos
+	renderer.setAxesColor(Color.WHITE); // Cor do eixo
+
+	// Eixo X
+	renderer.setXTitle("horas"); // Título do eixo X
+	renderer.setXAxisMin(0); // Onde começa o eixo X
+	renderer.setXAxisMax(24); // Onde termina o eixo X
+	renderer.setXLabels(6); // Quantos intervalos serão exibidos no eixo X (de quantos em quantos)
+	renderer.setXLabelsAlign(Align.RIGHT); // Alinhamento do texto sobre o eixo X
+
+	// Eixo Y
+	renderer.setYTitle("quantidade"); // Título do eixo Y
+	renderer.setYAxisMin(0);// Onde começa o eixo Y
+	renderer.setYAxisMax(10); // Onde termina o eixo Y
+	renderer.setYLabels(5); // Quantos intervalos serão exibidos no eixo Y
+	renderer.setYLabelsAlign(Align.RIGHT); // Alinhamento do texto sobre o eixo Y
+
+	// Barras
+	renderer.getSeriesRendererAt(0).setDisplayChartValues(true); // Exibir texto em cima do valor
+	renderer.getSeriesRendererAt(0).setGradientEnabled(true); // Exibir degrade
+	renderer.getSeriesRendererAt(0).setGradientStart(0, Color.GREEN); // Qual valor e qual cor que começa o degrade
+	renderer.getSeriesRendererAt(0).setGradientStop(10, Color.RED); // Valor e Cor termina e vai até o fim
+	renderer.setBarSpacing(0.1f); // espaçamento entre as barras
+
+	renderer.setLegendTextSize(20); // tamanho da legenda da vértice
+
+	renderer.setPanEnabled(true, true); // rolar o gráfico no eixo X e no eixo Y
+	renderer.setZoomEnabled(true, true); // zoo dos gráficos no eixo X e no eixo Y
+
+	renderer.setApplyBackgroundColor(true); // habilita o gráfico ter fundo (só o gráfico, não a tela toda)
+	renderer.setBackgroundColor(Color.parseColor("#4C4C4C"));// cor de fundo do gráfico} 
+}
